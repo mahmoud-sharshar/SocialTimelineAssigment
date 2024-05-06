@@ -1,24 +1,85 @@
-# README
+# Social Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails application for users to post stories to their timeline and review posts. Users can view their own posts, view other users' timelines, and see top-rated posts based on average review ratings.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Ruby version: >= 2.5.0
+- Rails version: >= 5.2.0
+- Database: SQLite
 
-* System dependencies
+## Setup
 
-* Configuration
+1. Clone the repository:
+   ```
+   git clone <repository_url>
+   ```
 
-* Database creation
+2. Install dependencies:
+   ```
+   bundle install
+   ```
 
-* Database initialization
+3. Set up the database:
+   ```
+   rails db:create
+   rails db:migrate
+   ```
 
-* How to run the test suite
+4. Seed the database:
+   ```
+   rails db:seed
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Usage
 
-* Deployment instructions
+1. Start the Rails server:
+   ```
+   rails server
+   ```
 
-* ...
+2. Visit `http://localhost:3000` in your web browser to access the application.
+
+3. Use the provided API endpoints to interact with the application.
+
+## API Endpoints
+
+- Please refer to this postman collection: https://documenter.getpostman.com/view/10320822/2sA3JJ8NGQ
+
+## Testing
+
+Run the test suite to ensure everything is working correctly:
+   ```
+   rails test
+   ```
+
+## Database Schema
+
+The database schema consists of three main tables: `users`, `posts`, and `reviews`. Here's an overview:
+   ```
+   users:
+     - id (primary key)
+     - username
+
+   posts:
+     - id (primary key)
+     - title
+     - body
+     - user_id (foreign key)
+
+   reviews:
+     - id (primary key)
+     - rating
+     - comment
+     - post_id (foreign key)
+     - user_id (foreign key)
+   ```
+![Database Schema](database_schema.png)  
+
+## Contributing
+
+Contributions are welcome! Feel free to submit bug reports, feature requests, or pull requests.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
